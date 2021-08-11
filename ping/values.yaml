@@ -80,3 +80,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+
+configmap:
+  gracefulTime: 15
+  appPort: 7676

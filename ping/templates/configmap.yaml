@@ -2,6 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-cm 
+  labels:
+    {{- include "application.labels" . | nindent 4 }}
 data:
-  GRACEFUL_TIME: "5"
-  APP_PORT: '8080'
+  GRACEFUL_TIME: {{ .Values.configmap.gracefulTime | quote }}
+  APP_PORT: {{ quote  .Values.configmap.appPort }}
