@@ -1,0 +1,28 @@
+apiVersion: network.openshift.io/v1
+kind: EgressNetworkPolicy
+metadata:
+  name: default-rules
+  namespace: {{ .Values.environment.shortName }}-{{ .Release.Name }}
+  labels:
+       {{- include "application.labels" . | nindent 4 }}
+  
+spec:
+  egress: |
+  {{- range  $rule := .Values.egress.dnsAllows }}
+  - type: Allow
+    to:
+      dnsName: {{ $rule }}
+  {{- end }}
+  {{- range  $rule := .Values.egress.cidrAllows }}
+  - type: Allow
+    to:
+      cidrSelector: {{ $rule }}
+  {{- end }}
+  {{- range  $rule := .Values.egress.cidrDenies }}
+  - type: Deny
+    to:
+      cidrSelector:  {{ $rule }}
+  {{- end }}
+
+
+

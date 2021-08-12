@@ -85,3 +85,20 @@ affinity: {}
 configmap:
   gracefulTime: 15
   appPort: 7676
+
+environment:
+  name: desarrollo
+  shortName: des
+
+namespace:  
+  annotations: 
+    capabilities: node/js
+    openshift.io/node-selector: "env={{ .Values.environment.name }}"
+
+egress:
+  dnsAllows:
+    - front.des.pelayo.com
+  cidrAllows:
+    - 192.6.0.0/16
+  cidrDenies:
+    - 0.0.0.0/0

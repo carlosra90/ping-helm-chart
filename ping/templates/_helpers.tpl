@@ -20,6 +20,7 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 {{- define "application.labels" -}}
+env: {{ .Values.environment.name }}
 helm.sh/chart: {{ include "application.chart" . }}
 {{ include "application.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
@@ -28,6 +29,8 @@ app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
+
+
 {{/*
 Selector labels
 */}}
@@ -35,3 +38,16 @@ Selector labels
 app.kubernetes.io/name: {{ include "application.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
+
+
+{{/*
+Common Namespace's labels
+*/}}
+
+{{- define "ns.labels" -}}
+kiali.io/member-of: infra-istio-system
+maistra.io/member-of: infra-istio-system
+project: {{ .Values.environment.shortName }}-{{ .Release.Name}}
+{{ include "application.labels" . }}
+{{- end }}
+
