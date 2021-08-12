@@ -102,3 +102,18 @@ egress:
     - 192.6.0.0/16
   cidrDenies:
     - 0.0.0.0/0
+limitRange:
+  limits:
+  - default:
+      memory: 512Mi
+      cpu: 500m
+    defaultRequest:
+      memory: 512Mi
+      cpu: 100m
+    max:
+      memory: 1Gi
+      cpu: 500m
+    min:
+      memory: 100Mi
+      cpu: 10m
+    type: Container
