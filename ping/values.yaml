@@ -94,8 +94,8 @@ namespace:
     openshift.io/node-selector: "env={{ .Values.environment.name }}"
 
 egress:
-  dnsAllows: {}
-  cidrAllows: {}
+  dnsAllows: []
+  cidrAllows: []
   cidrDenies:
     - 0.0.0.0/0
 limitRange:
