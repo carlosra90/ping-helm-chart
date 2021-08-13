@@ -96,10 +96,8 @@ namespace:
     openshift.io/node-selector: "env={{ .Values.environment.name }}"
 
 egress:
-  dnsAllows:
-    - front.des.pelayo.com
-  cidrAllows:
-    - 192.6.0.0/16
+  dnsAllows: {}
+  cidrAllows: {}
   cidrDenies:
     - 0.0.0.0/0
 limitRange:
