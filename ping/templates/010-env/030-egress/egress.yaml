@@ -2,7 +2,7 @@ apiVersion: network.openshift.io/v1
 kind: EgressNetworkPolicy
 metadata:
   name: default-rules
-  namespace: {{ .Values.environment.shortName }}-{{ .Release.Name }}
+  namespace: {{ .Release.Name }}
   labels:
        {{- include "application.labels" . | nindent 4 }}
   

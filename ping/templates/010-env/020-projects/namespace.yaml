@@ -1,7 +1,7 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: {{ .Values.environment.shortName }}-{{ .Release.Name }}
+  name: {{ .Release.Name }}
   labels:
     {{- include "ns.labels" . | nindent 4 }}
   annotations:

@@ -47,7 +47,7 @@ Common Namespace's labels
 {{- define "ns.labels" -}}
 kiali.io/member-of: infra-istio-system
 maistra.io/member-of: infra-istio-system
-project: {{ .Values.environment.shortName }}-{{ .Release.Name}}
+project: {{ .Release.Name}}
 {{ include "application.labels" . }}
 {{- end }}
 

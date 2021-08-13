@@ -88,11 +88,9 @@ configmap:
 
 environment:
   name: desarrollo
-  shortName: des
 
 namespace:  
   annotations: 
-    capabilities: node/js
     openshift.io/node-selector: "env={{ .Values.environment.name }}"
 
 egress:
