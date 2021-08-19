@@ -25,3 +25,9 @@ limitRange:
       memory: 100Mi
       cpu: 10m
     type: Container
+monitoring:
+  namespace: openshift-monitoring
+jenkins:
+  serviceAccount:
+    name: jenkins
+    namespace: shared-jenkins
