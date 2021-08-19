@@ -1,0 +1,10 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    {{- include "ns.labels" . | nindent 4 }}
+  annotations:
+  {{- range $key, $value := .Values.namespace.annotations }}
+     {{ $key }}: {{ tpl $value $ |quote }}
+  {{- end }}
