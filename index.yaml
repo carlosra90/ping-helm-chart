@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  pelayo-initializator:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2021-08-20T10:55:03.765659372+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 2e56eaeac26492f9023cbafc153b188aa1f869b41726f06f0ccf9584469db809
+    name: pelayo-initializator
+    type: application
+    urls:
+    - https://github.com/carlosra90/ping-helm-chart/pelayo-initializator-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-08-20T10:55:03.753186188+02:00"
